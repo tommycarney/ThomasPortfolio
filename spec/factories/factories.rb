@@ -1,8 +1,8 @@
 FactoryBot.define do
-  
+
   factory :blog do
     title  "A title"
-    text  "body text"
+    body  "body text"
   end
 
   factory :portfolio do
