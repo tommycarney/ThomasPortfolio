@@ -3,6 +3,7 @@ FactoryBot.define do
   factory :blog do
     title  "A title"
     body  "body text"
+    topic
   end
 
   factory :portfolio do

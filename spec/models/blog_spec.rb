@@ -11,6 +11,12 @@ RSpec.describe Blog, type: :model do
     end
   end
 
+  describe "associations" do
+    it "belongs to a topic" do
+      expect(@blog).to belong_to(:topic)
+    end
+  end
+
   describe "validations" do
     it "can't be created without a title" do
       @blog.title = nil
