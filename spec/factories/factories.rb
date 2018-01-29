@@ -18,4 +18,13 @@ FactoryBot.define do
     title "a title"
     percent_utilized 10
   end
+
+  factory :technology do
+    name "MyString"
+    portfolio
+  end
+
+  factory :topic do
+    title "MyString"
+  end
 end
