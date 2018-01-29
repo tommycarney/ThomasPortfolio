@@ -41,6 +41,14 @@ RSpec.describe Portfolio, type: :model do
       expect(@portfolio).to_not be_valid
     end
 
+    it "doesn't create nested attributes with given an empty string" do
+      portfolio = Portfolio.create!(title: "Web app",
+                                    subtitle: "test subtitle",
+                                    body: "body",
+                                    technologies_attributes: [{name: ""}])
+      expect(portfolio.technologies.map(&:name)).to be_empty
+    end
+
 
   end
 end
