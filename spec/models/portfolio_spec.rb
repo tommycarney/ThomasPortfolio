@@ -9,6 +9,15 @@ RSpec.describe Portfolio, type: :model do
     it "can be created" do
       expect(@portfolio).to be_valid
     end
+
+    it "can be created with nested attributes" do
+      portfolio = Portfolio.create!(title: "Web app",
+                                    subtitle: "test subtitle",
+                                    body: "body",
+                                    technologies_attributes: [{name: "Ruby"}, {name: "Rails"}, {name: "Angular"}])
+
+      expect(portfolio.technologies.map(&:name)).to eq(["Ruby", "Rails", "Angular"])
+    end
   end
 
   describe "validations" do
@@ -31,5 +40,7 @@ RSpec.describe Portfolio, type: :model do
       @portfolio.thumb_image = nil
       expect(@portfolio).to_not be_valid
     end
+
+
   end
 end
